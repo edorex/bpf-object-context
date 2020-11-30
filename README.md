@@ -1,91 +1,35 @@
-# bpf-object-context
-Object Context manages the cache of domain models in your Angular Application.
+# Object Context
 
-## Object Context
-The *Object Context* takes full control over the state of models sent and received via API and within the application cache.
+This angular library project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.2.
 
-### Get started
-#### Install
-Copy the core context module from the demo project in this repository ([demo/src/app/core/context](https://github.com/edorex/bpf-object-context/tree/main/demo/src/app/core/context)) into your angular project and that's it.
-
-#### Register Context Providers
-Register your own Object Context Services in the `CoreModule` like in the example below.
+## Project Overview
 ```
-@NgModule({
-  // ...
-  providers: [
-    {
-      provide: ObjectContextName.yourModelCtx,
-      useFactory: (ctxService: ContextService) => new ObjectContext<YourModel>(ctxService),
-      deps: [ContextService],
-    }
-  // ...
-})
-export class CoreModule { }
+> .
+> dist                  Builded npm package after `ng build --prod` in object-context folder
+> projects              
+  -  demo               Demo angular project with a ng link to the object-context
+  -  object-context     Object-Context Package Library
 ```
+## How to develop, debug, test and deploy
+### Develop
+Navigate to `projects/object-context` and make your code changes.
 
-#### Register ObjectContext names
-Add the name of your ObjectContext to `object-context-name.class.ts` like in the example below:
-```
-export class ObjectContextName {
-  public static readonly yourModelCtx = 'YourModelCtx';
-}
-```
+### Test & Debug
+You can test your changes in the demo project after `ng build --prod` in the directory 
+`projects/object-context`.
+The demo project has a link to the locally builded package.
 
-#### Create your service to access the ObjectContext
-Create your service class and add public methods to call the ObjectContext ensure$ method like in the example below:
-```
-export class YourService {
-  $yourModel: Observable<ObjectState<YourModel>>;
+> Note: Make sure to always update unit tests if necessary and check them by calling `ng test` 
+>in the directory `projects/object-context`.
 
-  constructor(
-    @Inject(ObjectContextName.yourModelCtx) private yourModelCtx: ObjectContext<YourModel>,
-    private yourModelApiService: YourModelApiService
-  ) {
-    this.$yourModel = this.yourModelCtx.current$;
-  }
+### Publish
+#### 1. Make Prod Build
+Create a prod build by `ng build --prod` in the `projects/object-context` directory.
+> Note: Make sure all unit tests are successful and you updated the README.md in the 
+>`object-context` directory if needed.
 
-  ensureYourModel$(): Observable<ObjectState<YourModel>> {
-    return this.yourModelCtx.ensure$({
-      execute: (current) => {
-        return this.yourModelApiService.getAllHTTP().pipe(
-          map((apiResponse: YourApiModel) => {
-            return YourModel.from(apiResponse);
-          })
-        );
-      },
-      force: () => false,
-      clear: () => false,
-      queue: () => false,
-    });
-  }
-}
-```
+#### 2. Publish with `np`
+> Info: `np` does several steps in a wizard-like way to ensure that nothing is 
+> missed before publishing to npmjs.com. Install `np` by `npm install np -g`
 
-#### Usage in Components
-You just have to call `yourService.ensure$()` to get your `Observable<ObjectState<YourModel>>`. 
-Checkout the source code in the demo project for more detail.
-
-```
-export class YourComponent implements OnInit {
-
-  constructor(private yourService: YourService) { }
-
-  ngOnInit(): void {
-    this.yourService.ensureYourModel$().subscribe((state: ObjectState<YourModel>) => {
-      if (state.isLoaded) {
-        const model = state.object; // <-- Model received
-      }
-    });
-  }
-}
-```
-> Note: For easier reading the observables' unsubscribe call is missing in the example above. 
-
-
-## Demo
-Run the provided demo application by calling following commands within the `demo/` directory:
-```
-npm i
-ng serve
-```
+Run the `np` command in this project root folder and follow the wizzard.
