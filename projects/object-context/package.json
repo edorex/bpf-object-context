@@ -1,6 +1,6 @@
 {
-  "name": "object-context",
-  "version": "0.0.1",
+  "name": "@edorex/object-context",
+  "version": "0.1.0",
   "peerDependencies": {
     "@angular/common": "^11.0.1",
     "@angular/core": "^11.0.1"

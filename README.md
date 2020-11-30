@@ -23,13 +23,29 @@ The demo project has a link to the locally builded package.
 >in the directory `projects/object-context`.
 
 ### Publish
-#### 1. Make Prod Build
-Create a prod build by `ng build --prod` in the `projects/object-context` directory.
-> Note: Make sure all unit tests are successful and you updated the README.md in the 
->`object-context` directory if needed.
+#### 1. Unit Tests
+Make sure all unit tests pass.
 
-#### 2. Publish with `np`
-> Info: `np` does several steps in a wizard-like way to ensure that nothing is 
-> missed before publishing to npmjs.com. Install `np` by `npm install np -g`
+#### 2. Update Readme and Demo
+Update README.md if necessary and update the demo project if necessary.
 
-Run the `np` command in this project root folder and follow the wizzard.
+#### 3. Commit to GIT and create pull-request to merge into 
+* Commit your changes to the GIT repository.
+* Create a pull request to merge your branch into the `main` branch.
+
+#### 4. Publish to npm
+If all previous steps are done, checkout the `main` branch and run following 
+command in this project's root dir:
+```bash
+# (1) build project
+cd ./projects/object-context
+ng build --prod
+cd ../..
+
+# (2) login to npm.js with a user of the edorex organization (https://www.npmjs.com/org/edorex)
+npm login
+
+# (3) publish to npm.js
+cd ./dist/object-context
+npm publish --access public
+```
