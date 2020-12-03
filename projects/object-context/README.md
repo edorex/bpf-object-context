@@ -1,4 +1,4 @@
-# bpf-object-context
+# object-context
 Object Context manages the cache of domain models in your Angular Application.
 
 ## Object Context
@@ -6,7 +6,7 @@ The *Object Context* takes full control over the state of models sent and receiv
 
 ### Install
 ```
-npm install @edorex/bpf-object-context
+npm i @edorex/object-context
 ```
 
 ### Get started

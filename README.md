@@ -25,6 +25,10 @@ The demo project has a link to the locally builded package.
 ### Publish
 #### 1. Unit Tests
 Make sure all unit tests pass.
+```bash
+cd projects/object-context
+ng test
+```
 
 #### 2. Update Readme and Demo
 Update README.md if necessary and update the demo project if necessary.
@@ -32,6 +36,8 @@ Update README.md if necessary and update the demo project if necessary.
 #### 3. Commit to GIT and create pull-request to merge into 
 * Commit your changes to the GIT repository.
 * Create a pull request to merge your branch into the `main` branch.
+> Use `git merge --squash` and write the merge commit message according to 
+> [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) to support a changelog automation.
 
 #### 4. Publish to npm
 If all previous steps are done, checkout the `main` branch and run following 
