@@ -9,11 +9,11 @@
   },
   "peerDependencies": {
     "@angular/common": "^11.0.1",
-    "@angular/core": "^11.0.1"
-  },
-  "dependencies": {
-    "tslib": "^2.0.0",
+    "@angular/core": "^11.0.1",
     "rxjs": "~6.6.0",
     "zone.js": "~0.10.2"
+  },
+  "dependencies": {
+    "tslib": "^2.0.0"
   }
 }
