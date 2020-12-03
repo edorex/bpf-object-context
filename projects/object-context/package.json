@@ -1,11 +1,19 @@
 {
   "name": "@edorex/object-context",
-  "version": "0.1.0",
+  "version": "1.0.0",
+  "license" : "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/edorex/bpf-object-context.git",
+    "directory": "projects/object-context"
+  },
   "peerDependencies": {
     "@angular/common": "^11.0.1",
     "@angular/core": "^11.0.1"
   },
   "dependencies": {
-    "tslib": "^2.0.0"
+    "tslib": "^2.0.0",
+    "rxjs": "~6.6.0",
+    "zone.js": "~0.10.2"
   }
 }
