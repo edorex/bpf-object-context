@@ -1,7 +1,7 @@
 {
   "name": "bpf-object-context",
   "version": "1.0.0",
-  "license" : "MIT",
+  "license": "MIT",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
