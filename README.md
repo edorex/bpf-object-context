@@ -1,6 +1,6 @@
 # Object Context
 
-This angular library project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.2.
+This angular library project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.0.
 
 ## Project Overview
 ```
@@ -17,7 +17,7 @@ Navigate to `projects/object-context` and make your code changes.
 ### Test & Debug
 You can test your changes in the demo project after `ng build --prod` in the directory 
 `projects/object-context`.
-The demo project has a link to the locally builded package.
+The demo project has a link to the locally built package.
 
 > Note: Make sure to always update unit tests if necessary and check them by calling `ng test` 
 >in the directory `projects/object-context`.
