@@ -1,6 +1,6 @@
 # Object Context
 
-This angular library project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.0.
+This angular library project was generated with [Angular CLI](https://github.com/angular/angular-cli).
 
 ## Project Overview
 ```
